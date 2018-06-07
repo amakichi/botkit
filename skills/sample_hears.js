@@ -58,18 +58,6 @@ module.exports = function(controller) {
 
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-    // test
-    controller.hears(['test'], 'ambient', function(bot, message) {
-        if (message.match[1]) {
-            if (!wordfilter.blacklisted(message.match[1])) {
-                bot.reply('This message is test message.');
-            } else {
-                bot.reply(message, '_sigh_');
-            }
-        } else {
-            bot.reply(message, 'I will repeat whatever you say.');
-        }
-    });
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
