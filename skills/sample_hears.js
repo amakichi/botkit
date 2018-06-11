@@ -66,7 +66,14 @@ module.exports = function(controller) {
         } else {
             bot.reply(message, 'I will repeat whatever you say.')
         }
-    })
+    });
+    controller.hears(['^出勤', '^退勤'], 'ambient', function(bot, message) {
+        if (message.match[0]) {
+            bot.reply(message, '出勤を記録しました。');
+        } else if (message.match[1]) {
+            bot.reply(message, '退勤を記録しました。');
+        }
+    });
 
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
     /* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
