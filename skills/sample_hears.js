@@ -56,21 +56,14 @@ module.exports = function(controller) {
         }
     });
 
-    controller.hears(['test'], 'ambient', function(bot, message) {
-        if (message.match[1]) {
-            if (!wordfilter.blacklisted(message.match[1])) {
-                bot.reply(message, 'test message');
-            } else {
-                bot.reply(message, '_sigh_');
-            }
-        } else {
-            bot.reply(message, 'I will repeat whatever you say.')
-        }
+    controller.hears(['test'], 'direct_message', function(bot, message) {
+        bot.reply(message, 'test message');
     });
-    controller.hears(['^出勤', '^退勤'], 'ambient', function(bot, message) {
-        if (message.match[0]) {
+
+    controller.hears(['^出勤', '^退勤'], 'direct_message', function(bot, message) {
+        if (message.match('出勤')) {
             bot.reply(message, '出勤を記録しました。');
-        } else if (message.match[1]) {
+        } else if (message.match('退勤')) {
             bot.reply(message, '退勤を記録しました。');
         }
     });
